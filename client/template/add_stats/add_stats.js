@@ -17,7 +17,7 @@ Template.addStats.events({
 
     UserStats.update(Session.get("myStats")._id, userStats, { upsert: true} );
 
-    $('#myModal').modal('hide');
+    $('#addStats').modal('hide');
 
     function getAttributesFromForm(){
       userStats = {
@@ -33,5 +33,31 @@ Template.addStats.events({
       }
       return userStats;
     }
+  },
+  "click #save-attacks": function(event, template){
+    event.preventDefault();
+
+    userAttacks = getAttacksFromForm();
+    UserAttacks.update(Session.get("myAttacks")._id, userAttacks, {upsert: true} );
+    $('#addAttacks').modal('hide');
+    function getAttacksFromForm(){
+      userAttacks = {
+        "userId":         Meteor.userId(),
+        "attackName":     template.find("#attackName").value,
+        "damage":         template.find("#damage").value, 
+        "critRange":      template.find("#critRange").value,
+        "critMultiplier": template.find("#critMultiplier").value,
+        "wepType":        template.find("#wepType").value,
+        "dmgMultiplier":  template.find("#dmgMultiplier").value,
+        "range":        template.find("#range").value,
+        "ammo":        template.find("#ammo").value
+      }
+      return userAttacks;
+    }
   }
 });
+
+
+
+
+

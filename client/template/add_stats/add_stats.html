@@ -1,18 +1,21 @@
 <template name="addStats">
 
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addStats">
     Add Stats
   </button>
+  <button type="button" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#addAttacks">
+    Add Attacks
+  </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- Add Stats -->
+  <div class="modal fade" id="addStats" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabel">Add Stats</h4>
         </div>
-        <div class="modal-body"><!-- Modal Body-->
+        <div class="modal-body">
 
           <div class="row">
             <div class="col-xs-6">
@@ -77,6 +80,84 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button id="save-stats" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   <!-- Add Attacks -->
+  <div class="modal fade" id="addAttacks" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Add Attack</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="row">
+            <div class="col-xs-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="attackName" class="col-xs-3 control-label">Name</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="attackName" value={{getStat "attackName"}} placeholder="Long Sword">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="damage" class="col-xs-3 control-label">Damage</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="damage" value={{getStat "damage"}} placeholder="2D6">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="critRange" class="col-xs-3 control-label">Cirt Range</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="critRange" value={{getStat "critRange"}} placeholder="8">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="critMultiplier" class="col-xs-3 control-label">Crit Multiplier</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="critMultiplier" value={{getStat "critMultiplier"}} placeholder="8">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-xs-6">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="wepType" class="col-xs-3 control-label">Weapon Type</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="wepType" value={{getStat "wepType"}} placeholder="Piercing">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dmgMultiplier" class="col-xs-3 control-label">Damage Multiplier</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="dmgMultiplier" value={{getStat "dmgMultiplier"}}  placeholder="1">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="range" class="col-xs-3 control-label">Range</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="range" value={{getStat "range"}} placeholder="8">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="ammo" class="col-xs-3 control-label">Ammo</label>
+                  <div class="col-xs-9">
+                    <input type="text" class="form-control" id="ammo" value={{getStat "ammo"}}  placeholder="8">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>        
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="save-attacks" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
