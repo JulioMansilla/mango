@@ -1,6 +1,6 @@
 Template.addStats.helpers({
   "getStat": function(name){
-    myStats = Session.get("myStats");
+    myStats = Meteor.user()["profile"]["userStats"];
     if (myStats){
       return myStats[name];
     }else{
